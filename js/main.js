@@ -1,14 +1,38 @@
+// 🌗 Alternancia de modo claro/oscuro
+const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+const temaContainer = document.querySelector('.tema-container');
+const solIcon = document.querySelector('.icon.sol');
+const lunaIcon = document.querySelector('.icon.luna');
+
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+
+  if (body.classList.contains('dark-mode')) {
+    solIcon.style.opacity = '0.3';
+    lunaIcon.style.opacity = '1';
+  } else {
+    solIcon.style.opacity = '1';
+    lunaIcon.style.opacity = '0.3';
+  }
+
+  temaContainer.style.transition = 'background-color 0.5s ease';
+});
+
+// 📢 Firma para redes
+const firma = " —La Voz del Atril 📣";
+
 // 📢 Funciones para compartir
 function compartirWhatsApp(titulo) {
-  const texto = encodeURIComponent(`📖 "${titulo}" desde La Voz del Atril`);
+  const texto = encodeURIComponent(`📖 "${titulo}"${firma}`);
   const url = encodeURIComponent(window.location.href);
   window.open(`https://wa.me/?text=${texto}%20${url}`, '_blank');
 }
 
 function compartirX(titulo) {
-  const texto = encodeURIComponent(`📖 "${titulo}" desde La Voz del Atril`);
+  const texto = encodeURIComponent(`📖 "${titulo}"${firma}`);
   const url = encodeURIComponent(window.location.href);
-  window.open(`https://twitter.com/intent/tweet?text=${texto}&url=${url}`, '_blank');
+  window.open(`https://x.com/intent/tweet?text=${texto}&url=${url}`, '_blank');
 }
 
 function copiarURL() {
@@ -52,12 +76,11 @@ fetch('relatos.json')
     console.error("❌ Error al cargar relatos:", error);
   });
 
-// 🧠 Función reutilizable para mostrar/ocultar contenido e imagen
+// 🧠 Mostrar/ocultar contenido
 function toggleRelato(boton) {
   const relato = boton.closest('.relato');
   const contenido = relato.querySelector('.contenido');
   const imagen = relato.querySelector('.imagen-relato');
-
   const estaVisible = contenido.style.display === 'block';
 
   if (!estaVisible) {

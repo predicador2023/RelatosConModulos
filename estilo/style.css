@@ -1,12 +1,110 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 20px;
+:root {
+  --header-bg: #f4f4f4;
+  --text-color: #222;
+  --icon-size: 30px;
+  --link-color: #0055aa;
 }
 
+.dark-mode {
+  --header-bg: #111;
+  --text-color: #eee;
+  --link-color: #ffd700;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--header-bg);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Header fijo */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  padding: 15px 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Botón con desplazamiento */
+.theme-toggle {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle.moved {
+  transform: translateX(-50px);
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Ícono Sol */
+.icon {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23222' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41M6.34 17.66L4.93 19.07M19.07 4.93l-1.41 1.41M12 7a5 5 0 100 10 5 5 0 000-10z'/></svg>");
+}
+
+.dark-mode .icon {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23eee' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M21 12.79A9 9 0 0111.21 3a7 7 0 000 14A9 9 0 0121 12.79z'/></svg>");
+  transform: rotate(180deg);
+}
+
+header h1 {
+  font-size: 2em;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+ 
+:root {
+  --boton-bg: #4e73df;
+  --boton-text: #fff;
+  --boton-hover: #2e59d9;
+}
+
+.dark-mode {
+  --boton-bg: #8899ff;
+  --boton-text: #222;
+  --boton-hover: #7788ee;
+}
+
+button.boton-leer {
+  margin-top: 10px;
+  background-color: var(--boton-bg);
+  color: var(--boton-text);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.boton-leer:hover {
+  background-color: var(--boton-hover);
+}
+
+
+
+
+/* Estilos de relato */
 .relato {
-  background: #fff;
+  background: var(--relato-bg, #fff);
+  color: var(--text-color);
   margin-bottom: 30px;
   padding: 20px;
   border-radius: 10px;
@@ -14,7 +112,17 @@ body {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
+
+:root {
+  --relato-bg: #fff;
+}
+
+.dark-mode {
+  --relato-bg: #1e1e1e;
+}
+
 
 .relato h2 {
   margin-top: 0;
@@ -70,10 +178,90 @@ button.boton-leer:hover {
   display: flex;
   gap: 10px;
 }
+
+/* Footer */
+footer {
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  padding: 20px 10px;
+  text-align: center;
+  font-size: 0.9em;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 60px;
+}
+
+footer a {
+  color: var(--link-color);
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.tema-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--header-bg);
+  padding: 8px 12px;
+  border-radius: 12px;
+  transition: background-color 0.5s ease;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  transition: transform 0.4s ease;
+}
+
+.icon.sol {
+  filter: brightness(100%);
+}
+
+.dark-mode .icon.sol {
+  filter: brightness(50%);
+}
+
+.icon.luna {
+  filter: brightness(50%);
+}
+
+.dark-mode .icon.luna {
+  filter: brightness(100%);
+}
+
+
+/* 📱 Mobile responsive */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
     padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-toggle {
+    margin-top: 10px;
+  }
+
+   
+  header h1 {
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
   .relato {
@@ -100,8 +288,8 @@ button.boton-leer:hover {
   .boton-leer {
     width: 100%;
     margin: 6px 0;
-    font-size: 18px;        /* Más grande y visible */
-    padding: 14px 16px;     /* Más espacio para el toque */
+    font-size: 18px;
+    padding: 14px 16px;
     border-radius: 8px;
   }
 
@@ -112,9 +300,14 @@ button.boton-leer:hover {
   }
 
   .compartir button {
-    font-size: 18px;        /* Íconos más notorios */
+    font-size: 18px;
     padding: 12px;
     margin: 8px 0;
+  }
+
+  footer {
+    font-size: 0.8em;
+    padding: 15px 10px;
   }
 }
 
