@@ -31,7 +31,7 @@ fetch('relatos.json')
         <div class="contenido" style="display: none;">
           <p>${relato.texto}</p>
         </div>
-        <button class="leer-mas">Leer más</button>
+        <button class="boton-leer">Leer más</button>
 
         <div class="compartir">
           <button onclick="compartirWhatsApp('${relato.titulo}')">🟢 WhatsApp</button>
@@ -40,15 +40,33 @@ fetch('relatos.json')
         </div>
       `;
 
-      const botonLeerMas = contenedor.querySelector(".leer-mas");
-      const contenido = contenedor.querySelector(".contenido");
-      botonLeerMas.addEventListener("click", () => {
-        contenido.style.display = contenido.style.display === "none" ? "block" : "none";
-      });
-
       document.getElementById("contenedor-relatos").appendChild(contenedor);
+
+      const botonLeer = contenedor.querySelector('.boton-leer');
+      botonLeer.addEventListener('click', () => {
+        toggleRelato(botonLeer);
+      });
     });
   })
   .catch(error => {
     console.error("❌ Error al cargar relatos:", error);
   });
+
+// 🧠 Función reutilizable para mostrar/ocultar contenido e imagen
+function toggleRelato(boton) {
+  const relato = boton.closest('.relato');
+  const contenido = relato.querySelector('.contenido');
+  const imagen = relato.querySelector('.imagen-relato');
+
+  const estaVisible = contenido.style.display === 'block';
+
+  if (!estaVisible) {
+    contenido.style.display = 'block';
+    imagen.classList.add('expandida');
+    boton.textContent = 'Leer menos';
+  } else {
+    contenido.style.display = 'none';
+    imagen.classList.remove('expandida');
+    boton.textContent = 'Leer más';
+  }
+}

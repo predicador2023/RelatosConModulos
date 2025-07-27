@@ -30,10 +30,20 @@ body {
   margin-top: 10px;
 }
 
-.relato img {
-  max-width: 100%;
-  border-radius: 6px;
-  margin-top: 10px;
+.imagen-relato {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: all 0.4s ease;
+}
+
+.imagen-relato.expandida {
+  max-height: none;
+  height: auto;
+  object-fit: contain;
 }
 
 .relato audio {
@@ -41,7 +51,7 @@ body {
   margin-top: 10px;
 }
 
-button {
+button.boton-leer {
   margin-top: 10px;
   background-color: #4e73df;
   color: white;
@@ -51,25 +61,13 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button.boton-leer:hover {
   background-color: #2e59d9;
 }
-.relato {
-  margin-bottom: 30px;
-}
-
-.imagen-relato {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
 
 .compartir {
   margin-top: 10px;
   display: flex;
   gap: 10px;
 }
+
