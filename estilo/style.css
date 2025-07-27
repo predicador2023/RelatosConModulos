@@ -71,3 +71,44 @@ button.boton-leer:hover {
   gap: 10px;
 }
 
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .relato {
+    margin-bottom: 30px;
+  }
+
+  .relato h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .imagen-relato {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .contenido {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .boton-leer,
+  .compartir button {
+    width: 100%;
+    margin: 6px 0;
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .compartir {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
