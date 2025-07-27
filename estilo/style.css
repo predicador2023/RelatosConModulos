@@ -28,7 +28,9 @@ header {
   right: 0;
   background-color: var(--header-bg);
   color: var(--text-color);
-  padding: 15px 20px;
+  padding: 10px 16px;
+  gap: 8px;              /* Añadido para espaciar elementos si se envuelven */
+  flex-wrap: wrap;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
@@ -66,7 +68,8 @@ header {
 }
 
 header h1 {
-  font-size: 2em;
+  font-size: 1.8em;
+  transition: font-size 0.3s ease;
   margin: 0;
   transition: color 0.4s ease;
 }
@@ -310,5 +313,35 @@ footer a:hover {
     padding: 15px 10px;
   }
 }
+
+@media (max-width: 333px) {
+  header {
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header h1 {
+    font-size: 1.4em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .tema-container {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .theme-toggle {
+    margin-top: 6px;
+  }
+}
+
 
 
