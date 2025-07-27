@@ -26,17 +26,19 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  z-index: 1000;
   background-color: var(--header-bg);
   color: var(--text-color);
-  padding: 10px 16px;
-  gap: 8px;              /* Añadido para espaciar elementos si se envuelven */
+  padding: 10px 16px; /* ya menos grueso */
+  gap: 10px;
   flex-wrap: wrap;
-  z-index: 1000;
+ 
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+
 
 /* Botón con desplazamiento */
 .theme-toggle {
@@ -64,8 +66,9 @@ header {
 
 .dark-mode .icon {
   background-image: url("data:image/svg+xml;utf8,<svg fill='%23eee' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M21 12.79A9 9 0 0111.21 3a7 7 0 000 14A9 9 0 0121 12.79z'/></svg>");
-  transform: rotate(180deg);
+  transform: rotate(30deg); /* Giro antihorario para mirar hacia la derecha */
 }
+
 
 header h1 {
   font-size: 1.8em;
@@ -113,6 +116,7 @@ button.boton-leer:hover {
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   max-width: 700px;
+  margin-top: 80px; /* según el alto del header */
   margin-left: auto;
   margin-right: auto;
   transition: background-color 0.4s ease, color 0.4s ease;
@@ -128,7 +132,12 @@ button.boton-leer:hover {
 
 
 .relato h2 {
-  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+  padding: 12px 10px;
+  margin: 0;
+  line-height: 1.4;
+  
   color: #4e73df;
 }
 
@@ -204,15 +213,17 @@ footer a:hover {
 }
 
 .tema-container {
+  width: auto;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  padding: 6px 12px; /* aumentamos separación horizontal */
   background-color: var(--header-bg);
-  padding: 8px 12px;
-  border-radius: 12px;
-  transition: background-color 0.5s ease;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: 12px; /* nuevo margen derecho */
 }
+
 
 .theme-toggle {
   display: flex;
@@ -251,9 +262,12 @@ footer a:hover {
     padding: 10px;
   }
 
-  header {
-    flex-direction: column;
-    align-items: flex-start;
+ header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 8px 12px;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .theme-toggle {
@@ -262,9 +276,28 @@ footer a:hover {
 
    
   header h1 {
-    font-size: 1.6em;
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 1.5em;
+    margin: 0;
+    flex: 1;
+    text-align: left;
+  }
+
+  .tema-container {
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 6px;
+    background-color: var(--header-bg);
+    border-radius: 8px;
+    margin-left: auto;
+  }
+
+  .theme-toggle {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin: 0;
   }
 
   .relato {
@@ -280,6 +313,11 @@ footer a:hover {
     width: 100%;
     height: auto;
     border-radius: 8px;
+  }
+   
+  .icon {
+    width: 24px;
+    height: 24px;
   }
 
   .contenido,
