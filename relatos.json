@@ -1,0 +1,14 @@
+[
+  {
+    "titulo": "Rut en el supermercado — Milagros entre góndolas",
+    "texto": "Rut entró al supermercado como quien entra al desierto buscando maná en forma de salsa de tomate. Venía arrastrando un día espeso...",
+    "audio": "audio/rut-supermercado.mp3",
+    "imagen": "img/rut-supermercado.png"
+  },
+  {
+    "titulo": "Noé en la estación — El Arca Invisible",
+    "texto": "Noé lleva hoodie, auriculares apagados y mirada despierta. Es joven, pero algo en sus ojos tiene siglos...",
+    "audio": "audio/noe-arca.mp3",
+    "imagen": "img/noe-subte.png"
+  }
+]
