@@ -254,6 +254,32 @@ footer a:hover {
   filter: brightness(100%);
 }
 
+.buscador-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 6px 12px;
+}
+
+#buscador {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: #fff;
+  color: #222;
+}
+
+.dark-mode #buscador {
+  background-color: #222;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+
 
 /* 📱 Mobile responsive */
 @media (max-width: 600px) {
@@ -379,6 +405,18 @@ footer a:hover {
   .theme-toggle {
     margin-top: 6px;
   }
+  .buscador-container {
+  width: 100%;
+  margin-top: 8px;
+  padding: 0 10px;
+}
+
+#buscador {
+  width: 100%;
+  font-size: 15px;
+  padding: 10px;
+}
+
 }
 
 
