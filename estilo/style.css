@@ -52,22 +52,64 @@ header {
   transform: translateX(-50px);
 }
 
+/* Contenedor de los íconos */
+.tema-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+
+/* Íconos base */
 .icon {
-  width: 100%;
-  height: 100%;
+  width: 40px;
+  height: 40px;
   background-size: cover;
-  transition: transform 0.3s ease;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  filter: drop-shadow(0 0 2px #00000066);
 }
 
-/* Ícono Sol */
-.icon {
-  background-image: url("data:image/svg+xml;utf8,<svg fill='%23222' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41M6.34 17.66L4.93 19.07M19.07 4.93l-1.41 1.41M12 7a5 5 0 100 10 5 5 0 000-10z'/></svg>");
+/* Ícono del sol */
+.icon.sol {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23f9c74f' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M12 4.5V2m0 20v-2.5M4.5 12H2m20 0h-2.5M6.34 6.34L4.93 4.93M19.07 19.07l-1.41-1.41M6.34 17.66L4.93 19.07M19.07 4.93l-1.41 1.41M12 7a5 5 0 100 10 5 5 0 000-10z'/></svg>");
+  filter: brightness(1.2) drop-shadow(0 0 4px #f9c74f);
 }
 
-.dark-mode .icon {
+/* Ícono de la luna */
+.icon.luna {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23e0e0e0' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M21 12.79A9 9 0 0111.21 3a7 7 0 1010.59 9.79z'/></svg>");
+  transform: rotate(0deg) scaleX(1);
+  filter: brightness(0.9) contrast(1.2) drop-shadow(0 0 3px #ffffff66);
+}
+
+/* Estado inicial: mostrar sol, esconder luna */
+.dark-mode .sol {
+  opacity: 0;
+  pointer-events: none;
+}
+.dark-mode .luna {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sol {
+  opacity: 1;
+  pointer-events: auto;
+}
+.luna {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+
+
+/* .dark-mode .icon {
   background-image: url("data:image/svg+xml;utf8,<svg fill='%23eee' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M21 12.79A9 9 0 0111.21 3a7 7 0 000 14A9 9 0 0121 12.79z'/></svg>");
   transform: rotate(30deg); /* Giro antihorario para mirar hacia la derecha */
-}
+} */
 
 
 header h1 {
