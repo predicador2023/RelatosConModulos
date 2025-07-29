@@ -190,6 +190,11 @@ button.boton-leer:hover {
   display: flex;
   gap: 10px;
 }
+#panel-secundario {
+  padding: 1rem;
+  background-color: #c0e0ff;
+  border-left: 2px solid #ccc;
+}
 
 /* Footer */
 footer {
@@ -278,6 +283,14 @@ footer a:hover {
   color: #eee;
   border: 1px solid #555;
 }
+
+#panel-secundario {
+  width: 25%;
+  padding: 1em;
+  background: var(--color-fondo-claro);
+  float: right;
+}
+
 
 
 
