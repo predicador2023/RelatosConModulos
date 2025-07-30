@@ -95,7 +95,17 @@ header h1 {
   cursor: pointer;
 }
 
-.icon {
+.theme-toggle:hover .sol {
+  transform: rotate(15deg) scale(1.1);
+  filter: drop-shadow(0 0 6px #f9c74f);
+}
+
+.theme-toggle:hover .luna {
+  transform: rotate(-10deg) scale(1.05);
+  filter: drop-shadow(0 0 6px #eee);
+}
+
+/* .icon {
   width: var(--icon-size);
   height: var(--icon-size);
   background-size: cover;
@@ -103,6 +113,16 @@ header h1 {
   transition: opacity 0.3s ease, filter 0.3s ease;
   cursor: pointer;
   filter: drop-shadow(0 0 2px #00000066);
+} */
+
+.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  cursor: pointer;
+  display: block;
 }
 
 .icon.sol {
